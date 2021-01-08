@@ -1,4 +1,4 @@
-name: Production Branch
+name: Development Branch
 
 on: [push]
 

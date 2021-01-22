@@ -1,0 +1,21 @@
+name: Pylint
+
+on: [push]
+
+jobs:
+  deploy:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.MY_AWS_KEY_ID}}
+        aws-secret-access-key: ${{ secrets.MY_AWS_SECRET_ACCESS_KEY}}
+        aws-region: us-east-2
+    - name: GitHub Actions WebDeploy
+      uses: cschleiden/webdeploy-action@v1
+         webSiteName:'Default Web Site'
+         package:${{ format('{0}\dist', runner.workspace) }}

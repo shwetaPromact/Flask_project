@@ -1,13 +1,24 @@
-name: Flask App
-on:  [push]
+name: Production Branch
+
+on: [push]
+
 jobs:
   build:
-     runs-on: windows-latest
-     steps:
-     - name: Install dependencies
-       run: |
+
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        python-version: [3.7]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
         python3 -m pip install --upgrade pip
         pip3 install -r requirements.txt
-     - name: Deploy Application
-       shell: cmd
-       run: '"C:/Program Files/IIS/Microsoft Web Deploy V3/msdeploy.exe" -verb:sync -allowUntrusted -source:contentPath=.root -dest:contentPath="C:/inetpub/wwwroot/flask_app",computerName="EC2AMAZ-RAHLU3P/msdeploy.axd?site=Default Web Site",username="Administrator",password="&=d3JDXw%kDDeeEd8gptEsICqWelWAu7",authtype="Basic"'
+    - name: Deploy Application
+      shell: cmd
+      run: '"C:/Program Files/IIS/Microsoft Web Deploy V3/msdeploy.exe" -verb:sync -allowUntrusted -source:contentPath=.root -dest:contentPath="C:/inetpub/wwwroot/flask_app",computerName="EC2AMAZ-RAHLU3P/msdeploy.axd?site=Default Web Site",username="Administrator",password="&=d3JDXw%kDDeeEd8gptEsICqWelWAu7",authtype="Basic"'

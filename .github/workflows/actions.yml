@@ -18,4 +18,4 @@ jobs:
     - name: GitHub Actions WebDeploy
       uses: cschleiden/webdeploy-action@v1
          webSiteName:'Default Web Site'
-         package:${{ format('{0}\dist', runner.workspace) }}
+         package:${{ format('{0}', runner.workspace) }}

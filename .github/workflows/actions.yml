@@ -21,4 +21,4 @@ jobs:
         pip install -r requirements.txt
     - name: Deploy Application
       shell: cmd
-      run: '"C:/Program Files/IIS/Microsoft Web Deploy V3/msdeploy.exe" -verb:sync -allowUntrusted -source:contentPath="ec2-18-191-87-149.us-east-2.compute.amazonaws.com" -dest:contentPath="C:/inetpub/wwwroot/flask_app",computerName="EC2AMAZ-RAHLU3P/msdeploy.axd?site=Default Web Site",username="Administrator",password="&=d3JDXw%kDDeeEd8gptEsICqWelWAu7",authtype="Basic"'
+      run: '"C:/Program Files/IIS/Microsoft Web Deploy V3/msdeploy.exe" -verb:sync -allowUntrusted -source:contentPath="C:\inetpub\wwwroot\flask_app" -dest:contentPath="C:/inetpub/wwwroot/flask_app",computerName="18.191.87.149/msdeploy.axd?site=Default Web Site",username="Administrator",password="&=d3JDXw%kDDeeEd8gptEsICqWelWAu7",authtype="Basic"'

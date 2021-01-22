@@ -5,4 +5,5 @@ jobs:
      runs-on: windows-latest
      steps:
      - name: Deploy Application
-       run: '"C:/Program Files/IIS/Microsoft Web Deploy V3/msdeploy.exe" -allowUntrusted -source:contentPath="Publish/CICDPractice/" -dest:contentPath="C:\inetpub\wwwroot",computerName="EC2AMAZ-RAHLU3P/msdeploy.axd?site=flask",username="Administrator",password="&=d3JDXw%kDDeeEd8gptEsICqWelWAu7",authtype="Basic"'
+       shell: cmd
+       run: '"C:/Program Files/IIS/Microsoft Web Deploy V3/msdeploy.exe" -verb:sync -allowUntrusted -source:contentPath="Publish/CICDPractice/" -dest:contentPath="C:\inetpub\wwwroot",computerName="EC2AMAZ-RAHLU3P/msdeploy.axd?site=flask",username="Administrator",password="&=d3JDXw%kDDeeEd8gptEsICqWelWAu7",authtype="Basic"'

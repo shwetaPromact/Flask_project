@@ -16,6 +16,6 @@ jobs:
         aws-secret-access-key: ${{ secrets.MY_AWS_SECRET_ACCESS_KEY}}
         aws-region: us-east-2
     - name: GitHub Actions WebDeploy
-      uses: cschleiden/webdeploy-action@v1
+      uses: cschleiden/webdeploy-action@
          webSiteName:'Default Web Site'
          package:app.py

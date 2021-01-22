@@ -5,4 +5,5 @@ jobs:
      runs-on: windows-latest
      steps:
      - name:Install dependencies
+       - shell:cmd
        run:'"C:/Program Files/IIS/Microsoft Web Deploy V3/msdeploy.exe" -verb:sync -allowUntrusted -source:contentPath="Publish/CICDPractice/" -dest:contentPath="${{ secrets.WEBSITE_CONTENT_PATH }}",computerName="${{ secrets.IIS_SERVER_COMPUTER_NAME }}/msdeploy.axd?site=${{ secrets.IIS_WEBSITE_NAME }}",username="${{ secrets.IIS_SERVER_USERNAME }}",password="${{ secrets.IIS_SERVER_PASSWORD }}",authtype="Basic"'

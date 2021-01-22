@@ -18,4 +18,4 @@ jobs:
     - name: GitHub Actions WebDeploy
       uses: cschleiden/webdeploy-action@
          webSiteName:'Default Web Site'
-         package:app.py
+         package:flask_app

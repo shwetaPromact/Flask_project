@@ -22,4 +22,5 @@ jobs:
         
     - name: Deploy Application
       shell: cmd
-      run: '"C:/Program Files (x86)/IIS/Microsoft Web Deploy V3/msdeploy.exe" -verb:sync -allowUntrusted -source:contentPath="D:\a\flask_app\flask_app" -dest:contentPath="C:/inetpub/wwwroot",computerName="http://18.191.87.149/msdeploy.axd?site=Default%20Web%20Site",username="Administrator",password="&=d3JDXw%kDDeeEd8gptEsICqWelWAu7",authtype="basic"'
+      run: '"C:/Program Files (x86)/IIS/Microsoft Web Deploy V3/msdeploy.exe" -verb:sync -allowUntrusted -useCheckSum -source:contentPath="D:\a\flask_app\flask_app" -dest:contentPath="C:\inetpub\wwwroot\flaskproject",computerName="https://18.216.110.79/msdeploy.axd?site=Default Web Site",username="Administrator",password="q368QT&HQT(Te!tfEPUVxDz9(j&Go$Gx",authtype="Basic"'
+      
